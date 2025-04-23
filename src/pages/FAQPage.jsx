@@ -109,14 +109,14 @@ const faqs = [
 ]
 
 const FAQPage = () => {
-  const [activeCategory, setActiveCategory] = useState<number | null>(1)
-  const [openQuestions, setOpenQuestions] = useState<string[]>([])
+  const [activeCategory, setActiveCategory] = useState(1)
+  const [openQuestions, setOpenQuestions] = useState([])
 
-  const toggleCategory = (categoryId: number) => {
+  const toggleCategory = (categoryId) => {
     setActiveCategory(activeCategory === categoryId ? null : categoryId)
   }
 
-  const toggleQuestion = (questionId: string) => {
+  const toggleQuestion = (questionId) => {
     if (openQuestions.includes(questionId)) {
       setOpenQuestions(openQuestions.filter((id) => id !== questionId))
     } else {

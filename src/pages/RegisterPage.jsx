@@ -1,8 +1,6 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Eye, EyeOff } from "lucide-react"
 
@@ -19,9 +17,9 @@ const RegisterPage = () => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [errors, setErrors] = useState({})
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target
     setFormData((prev) => ({
       ...prev,
@@ -30,7 +28,7 @@ const RegisterPage = () => {
   }
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors = {}
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required"
@@ -72,13 +70,12 @@ const RegisterPage = () => {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (validateForm()) {
-      // Handle form submission logic here
       console.log("Form submitted:", formData)
       alert("Registration successful! You can now login.")
-      // Redirect to login page or show success message
+      // Perform further logic like redirect or API call here
     }
   }
 
@@ -87,7 +84,7 @@ const RegisterPage = () => {
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <div className="py-4 px-6 bg-blue-600 text-white text-center">
           <h2 className="text-2xl font-bold">Create an Account</h2>
-          <p className="text-sm mt-1">Join FinTaxPro to access our courses and services</p>
+          <p className="text-sm mt-1">Join KamalTaxPro to access our courses and services</p>
         </div>
 
         <form onSubmit={handleSubmit} className="py-6 px-8">

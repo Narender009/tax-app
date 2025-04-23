@@ -1,8 +1,6 @@
 "use client"
 
-import  React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { CheckCircle } from "lucide-react"
 
 const dscTypes = [
@@ -51,7 +49,7 @@ const dscTypes = [
 ]
 
 const BuyDSCPage = () => {
-  const [selectedDSC, setSelectedDSC] = useState<number | null>(null)
+  const [selectedDSC, setSelectedDSC] = useState(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,18 +59,17 @@ const BuyDSCPage = () => {
     aadharCard: "",
   })
 
-  const handleDSCSelect = (id: number) => {
+  const handleDSCSelect = (id) => {
     setSelectedDSC(id)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission logic here
     console.log("DSC Order:", { dscType: selectedDSC, ...formData })
     alert("Thank you for your order. We'll process it and contact you soon!")
   }
@@ -80,7 +77,9 @@ const BuyDSCPage = () => {
   return (
     <div className="container mx-auto px-6 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Buy Digital Signature Certificate (DSC)</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">
+          Buy Digital Signature Certificate (DSC)
+        </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
           Get your Digital Signature Certificate quickly and hassle-free. We provide end-to-end assistance for DSC
           application and delivery.

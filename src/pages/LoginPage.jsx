@@ -1,14 +1,12 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 
 const LoginPage = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     // Handle login logic here
     console.log("Login attempt with:", { email, password })
@@ -18,7 +16,7 @@ const LoginPage = () => {
     <div className="container mx-auto px-6 py-12">
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <div className="py-4 px-6 bg-blue-600 text-white text-center">
-          <h2 className="text-2xl font-bold">Login to FinTaxPro</h2>
+          <h2 className="text-2xl font-bold">Login to KamalTaxPro</h2>
         </div>
 
         <form onSubmit={handleSubmit} className="py-6 px-8">
